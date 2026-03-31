@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MR.BURGER</title>
+    <link rel="icon" type="image/x-icon" href="../images/MR.BURGER logo.jpeg">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/auth.css">
+    <link rel="stylesheet" href="../css/menu.css">
+    <link rel="stylesheet" href="../css/cart.css">
+    <link rel="stylesheet" href="../css/orders-favorites.css">
+    <link rel="stylesheet" href="../css/profile.css">
+    <link rel="stylesheet" href="../css/custom-burger-popup.css">
+    <link rel="stylesheet" href="../css/notifications.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+</head>
+
+<body>
+    <div id="app">
+        <div id="auth-page" class="page active">
+            <div class="auth-container">
+                <img src="../images/MR.BURGER logo.jpeg" alt="MR.Burger Logo" class="auth-logo">
+                <h1>MR.BURGER</h1>
+                <div class="auth-tabs">
+                    <button id="login-tab" class="tab-btn active">התחברות</button>
+                    <button id="register-tab" class="tab-btn">הרשמה</button>
+                </div>
+
+                <div id="login-form" class="auth-form active">
+                    <div class="login-welcome">
+                        <h3>ברוך השב!</h3>
+                        <p>היכנס לחשבון שלך והתחל להזמין</p>
+                    </div>
+                    <input type="tel" id="login-phone" placeholder="מספר טלפון" required>
+                    <div class="password-container">
+                        <input type="password" id="login-password" placeholder="סיסמה" required>
+                        <span class="password-toggle" onclick="app.togglePassword('login-password')">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
+                            </svg>
+                        </span>
+                    </div>
+                    <div class="login-info">
+                        <p>לא רשום עדיין? עבור לטאב הרשמה והצטרף אלינו!</p>
+                    </div>
+                    <button id="login-btn">התחבר</button>
+                </div>
+
+                <div id="register-form" class="auth-form">
+                    <input type="text" id="register-firstName" placeholder="שם פרטי" required>
+                    <input type="text" id="register-lastName" placeholder="שם משפחה" required>
+                    <input type="tel" id="register-phone" placeholder="מספר טלפון" required>
+                    <div class="password-container">
+                        <input type="password" id="register-password" placeholder="סיסמה" required>
+                        <span class="password-toggle" onclick="app.togglePassword('register-password')">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
+                            </svg>
+                        </span>
+                    </div>
+                    <input type="date" id="register-birthDate" placeholder="תאריך לידה" required>
+                    <button id="register-btn">הירשם</button>
+                </div>
+
+                <div id="auth-message" class="message"></div>
+            </div>
+        </div>
+
+        <div id="main-page" class="page">
+            <nav class="sidebar">
+                <div class="sidebar-header">
+                    <img src="../images/MR.BURGER logo.jpeg" alt="MR.Burger Logo" class="sidebar-logo">
+                    <h2>MR.BURGER</h2>
+                </div>
+                <div class="nav-menu">
+                    <button id="home-nav" class="nav-item active">
+                        <span class="nav-icon">🏠</span>
+                        <span class="nav-text">בית</span>
+                    </button>
+                    <button id="orders-nav" class="nav-item">
+                        <span class="nav-icon">📋</span>
+                        <span class="nav-text">הזמנות אחרונות</span>
+                    </button>
+                    <button id="favorites-nav" class="nav-item">
+                        <span class="nav-icon">❤️</span>
+                        <span class="nav-text">מנות מועדפות</span>
+                    </button>
+                    <button id="cart-nav" class="nav-item">
+                        <span class="nav-icon">🛒</span>
+                        <span class="nav-text">עגלה (<span id="cart-count">0</span>)</span>
+                    </button>
+                    <button id="profile-nav" class="nav-item">
+                        <span class="nav-icon">👤</span>
+                        <span class="nav-text">פרופיל</span>
+                    </button>
+                </div>
+                <button id="logout-btn" class="logout-item">
+                    <span class="nav-icon">➡️</span>
+                    <span class="nav-text">התנתק</span>
+                </button>
+            </nav>
+
+            <main class="main-content">
+
+                <div id="home-content" class="content active">
+                    <h2>תפריט המבורגרים</h2>
+                    <div id="menu-items" class="menu-grid">
+                        <div class="menu-item" data-name="המבורגר קלאסיק" data-price="55">
+                            <img src="../images/classic burger.jpeg" alt="המבורגר קלאסיק" class="burger-image">
+                            <h3>המבורגר קלאסיק</h3>
+                            <p>קציצת בקר עסיסית, חסה פריכה, עגבנייה טרייה ובצל על לחמנייה רכה</p>
+                            <p class="price">₪55</p>
+                            <div class="item-actions">
+                                <button class="add-to-cart">🛒 הוסף לעגלה</button>
+                                <span class="favorite-heart" title="הוסף למועדפים">♥</span>
+                            </div>
+                        </div>
+
+                        <div class="menu-item" data-name="המבורגר עם רוטב הבית" data-price="65">
+                            <img src="../images/Hamburger with sauce.jpeg" alt="המבורגר עם רוטב הבית"
+                                class="burger-image">
+                            <h3>המבורגר עם רוטב הבית</h3>
+                            <p>קציצת בקר, רוטב הבית המיוחד, חסה, עגבנייה ובצל מטוגן</p>
+                            <p class="price">₪65</p>
+                            <div class="item-actions">
+                                <button class="add-to-cart">🛒 הוסף לעגלה</button>
+                                <span class="favorite-heart" title="הוסף למועדפים">♥</span>
+                            </div>
+                        </div>
+                        <div class="menu-item" data-name="המבורגר כבש" data-price="75">
+                            <img src="../images/Lamb burger.jpeg" alt="המבורגר כבש" class="burger-image">
+                            <h3>המבורגר כבש</h3>
+                            <p>קציצת כבש טרייה ועסיסית, חסה, עגבנייה, בצל אדום </p>
+                            <p class="price">₪75</p>
+                            <div class="item-actions">
+                                <button class="add-to-cart">🛒 הוסף לעגלה</button>
+                                <span class="favorite-heart" title="הוסף למועדפים">♥</span>
+                            </div>
+                        </div>
+                        <div class="menu-item" data-name="המבורגר עגבניות" data-price="58">
+                            <img src="../images/Tomato burger.jpeg" alt="המבורגר עגבניות" class="burger-image">
+                            <h3>המבורגר עגבניות</h3>
+                            <p>קציצת בקר, עגבניות שרי טריות, בזיליקום וחסה</p>
+                            <p class="price">₪58</p>
+                            <div class="item-actions">
+                                <button class="add-to-cart">🛒 הוסף לעגלה</button>
+                                <span class="favorite-heart" title="הוסף למועדפים">♥</span>
+                            </div>
+                        </div>
+                        <div class="menu-item" data-name="המבורגר דגנים מלאים" data-price="62">
+                            <img src="../images/Wholemeal hamburger.jpeg" alt="המבורגר דגנים מלאים"
+                                class="burger-image">
+                            <h3>המבורגר דגנים מלאים</h3>
+                            <p>קציצת בקר על לחמנייה מדגנים מלאים, אבוקדו, חסה ועגבנייה</p>
+                            <p class="price">₪62</p>
+                            <div class="item-actions">
+                                <button class="add-to-cart">🛒 הוסף לעגלה</button>
+                                <span class="favorite-heart" title="הוסף למועדפים">♥</span>
+                            </div>
+                        </div>
+
+                        <div class="menu-item custom-burger" data-name="המבורגר מותאם אישית" data-price="50">
+                            <img src="../images/Hamburger with pickles.jpeg" alt="המבורגר מותאם אישית" class="burger-image">
+                            <h3>המבורגר מותאם אישית</h3>
+                            <p>בנה את המבורגר המושלם שלך - בחר לחם, בשר, רטבים ותוספות</p>
+                            <p class="price">החל מ-₪50</p>
+                            <div class="item-actions">
+                                <button class="customize-burger">🍔 התאם אישית</button>
+                                <span class="favorite-heart" title="הוסף למועדפים">♥</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="orders-content" class="content">
+                    <h2>ההזמנות האחרונות שלי</h2>
+                    <div id="orders-list" class="orders-list"></div>
+                </div>
+
+                <div id="favorites-content" class="content">
+                    <h2>המנות המועדפות שלי</h2>
+                    <div id="favorites-list" class="favorites-list"></div>
+                </div>
+
+                <div id="cart-content" class="content">
+                    <h2>עגלת הקניות שלי</h2>
+                    <div id="cart-items" class="cart-items"></div>
+                    <div id="cart-total" class="cart-total"></div>
+                    <button id="checkout-btn" class="checkout-btn">בצע הזמנה</button>
+                </div>
+
+                <div id="profile-content" class="content">
+                    <h2>הפרופיל שלי</h2>
+                    <div class="profile-container">
+                        <div id="profile-info" class="profile-info"></div>
+                        <div id="profile-edit" class="profile-edit" style="display: none;">
+                            <div class="password-container">
+                                <input type="password" id="current-password" placeholder="סיסמה נוכחית (לאימות)">
+                                <span class="password-toggle" onclick="app.togglePassword('current-password')">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
+                                    </svg>
+                                </span>
+                            </div>
+                            <input type="text" id="edit-firstName" placeholder="שם פרטי">
+                            <input type="text" id="edit-lastName" placeholder="שם משפחה">
+                            <div class="password-container">
+                                <input type="password" id="edit-password" placeholder="סיסמה ">
+                                <span class="password-toggle" onclick="app.togglePassword('edit-password')">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
+                                    </svg>
+                                </span>
+                            </div>
+                            <input type="date" id="edit-birthDate" placeholder="תאריך לידה">
+                            <div class="profile-buttons">
+                                <button id="save-profile-btn">שמור שינויים</button>
+                                <button id="cancel-edit-btn">בטל</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <div id="custom-burger-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h2>בנה את המבורגר שלך</h2>
+
+                <div class="custom-section">
+                    <h3>🍞 בחר לחם:</h3>
+                    <div class="options-grid">
+                        <label><input type="radio" name="bread" value="רגיל" data-price="0" checked> לחמנייה רגילה</label>
+                        <label><input type="radio" name="bread" value="דגנים" data-price="3"> דגנים מלאים (+₪3)</label>
+                        <label><input type="radio" name="bread" value="בריאוש" data-price="2"> בריאוש (+₪2)</label>
+                    </div>
+                </div>
+
+                <div class="custom-section">
+                    <h3>🥩 בחר בשר:</h3>
+                    <div class="options-grid">
+                        <label><input type="radio" name="meat" value="בקר" data-price="0" checked> קציצת בקר</label>
+                        <label><input type="radio" name="meat" value="כבש" data-price="15"> קציצת כבש (+₪15)</label>
+                        <label><input type="radio" name="meat" value="עוף" data-price="5"> קציצת עוף (+₪5)</label>
+                    </div>
+                </div>
+
+                <div class="custom-section">
+                    <h3>🌶️ בחר רטבים:</h3>
+                    <div class="options-grid">
+                        <label><input type="checkbox" name="sauce" value="קטשופ" data-price="0"> קטשופ</label>
+                        <label><input type="checkbox" name="sauce" value="מיונז" data-price="1"> מיונז (+₪1)</label>
+                        <label><input type="checkbox" name="sauce" value="בביקיו" data-price="2"> ברביקיו (+₪2)</label>
+                        <label><input type="checkbox" name="sauce" value="הבית" data-price="3"> רוטב הבית (+₪3)</label>
+                    </div>
+                </div>
+
+                <div class="custom-section">
+                    <h3>🥗 בחר תוספות:</h3>
+                    <div class="options-grid">
+                        <label><input type="checkbox" name="topping" value="חסה" data-price="0"> חסה</label>
+                        <label><input type="checkbox" name="topping" value="עגבנייה" data-price="0"> עגבנייה</label>
+                        <label><input type="checkbox" name="topping" value="בצל" data-price="0"> בצל</label>
+                        <label><input type="checkbox" name="topping" value="בצל מטוגן" data-price="5"> בצל מטוגן(+₪5)</label>
+                        <label><input type="checkbox" name="topping" value="חמוצים" data-price="2"> חמוצים (+₪2)</label>
+                        <label><input type="checkbox" name="topping" value="אבוקדו" data-price="8"> אבוקדו (+₪8)</label>
+                    </div>
+                </div>
+
+                <div class="custom-total">
+                    <h3>סה"כ: <span id="custom-price">₪50</span></h3>
+                </div>
+
+                <div class="modal-buttons">
+                    <button id="add-custom-burger">הוסף לעגלה</button>
+                    <button id="cancel-custom">בטל</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="loading-overlay" class="loading-overlay">
+        <div class="loading-spinner">
+            <div class="spinner"></div>
+            <p>מעבד בקשה...</p>
+        </div>
+    </div>
+
+    <script src="../js/databaseOfOrders.js"></script>
+    <script src="../js/databaseOfDishes.js"></script>
+    <script src="../js/databaseOfClients.js"></script>
+    <script src="../js/ordersServer.js"></script>
+    <script src="../js/dishesServer.js"></script>
+    <script src="../js/ClientsServer.js"></script>
+    <script src="../js/netWork.js"></script>
+    <script src="../js/FXMLhttpRequest.js"></script>
+    <script src="../js/client.js"></script>
+    <script src="../js/network-notifications.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/cart.js"></script>
+    <script src="../js/favorites.js"></script>
+    <script src="../js/orders.js"></script>
+    <script src="../js/profile.js"></script>
+    <script src="../js/custom-burger.js"></script>
+    <script src="../js/user-interface-manager.js"></script>
+    <script src="../js/page-history-manager.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+
+</html>

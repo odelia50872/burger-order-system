@@ -1,0 +1,70 @@
+{
+    "clients": [
+        {
+            "firstName": "Odelia",
+            "lastName": "Nakash",
+            "phoneNumber": "0583250872",
+            "password": "1",
+            "dateOfBirth": "22/04/2006"
+        },
+        {
+            "firstName": "Yael",
+            "lastName": "Kukis",
+            "phoneNumber": "0583223717",
+            "password": "2",
+            "dateOfBirth": "28/11/2006"
+        }
+    ],
+    "clientsLastOrders": [
+        {
+            "phoneNumber": "0583250872",
+            "lastOrders": [
+                {
+                    "orderName": "Deal for 2",
+                    "price": "126"
+                },
+                {
+                    "orderName": "Deal for 5",
+                    "price": "275"
+                }
+            ]
+        },
+        {
+            "phoneNumber": "0583223717",
+            "lastOrders": [
+                {
+                    "orderName": "Deal for 2",
+                    "price": "126"
+                },
+                {
+                    "orderName": "Deal for 5",
+                    "price": "275"
+                }
+            ]
+        }
+    ],
+    "clientsFavoriteDishes": [
+        {
+            "phoneNumber": "0583250872",
+            "favoriteDishes": [
+                {
+                    "dishName": "lamb burger",
+                    "price": "59"
+                },
+                {
+                    "dishName": "spicy burger",
+                    "price": "59"
+                }
+            ]
+        },
+        {
+            "phoneNumber": "0583223717",
+            "favoriteDishes": [
+                {
+                    "dishName": "spicy burger",
+                    "price": "59"
+                }
+            ]
+        }
+    ]
+}

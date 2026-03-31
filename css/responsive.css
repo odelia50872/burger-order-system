@@ -1,0 +1,66 @@
+@media (max-width: 768px) {
+    .auth-container {
+        margin: 20px;
+        padding: 20px;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        border-left: none;
+        border-bottom: 3px solid #ff0000;
+    }
+
+    .sidebar-header {
+        padding: 20px;
+    }
+
+    .sidebar-logo {
+        width: 60px;
+        height: 60px;
+    }
+
+    .sidebar h2 {
+        font-size: 1.5em;
+    }
+
+    .nav-menu {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        padding: 15px;
+    }
+
+    .nav-item {
+        flex: 1;
+        min-width: 120px;
+        margin: 0;
+        padding: 12px 15px;
+        font-size: 14px;
+        justify-content: center;
+    }
+
+    .nav-text {
+        text-align: center;
+    }
+
+    .logout-item {
+        width: 100%;
+        margin: 10px 0 20px;
+        justify-content: center;
+    }
+
+    .main-content {
+        margin-right: 0;
+        padding: 20px;
+    }
+
+    .menu-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .item-actions {
+        flex-direction: column;
+    }
+}
