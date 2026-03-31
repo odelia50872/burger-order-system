@@ -15,10 +15,12 @@ The core of this project is a **custom-built Fake HTTP Layer**, which mimics asy
 
 ### 1. Authentication & Landing
 <img width="737" height="836" alt="צילום מסך 2026-03-31 180745" src="https://github.com/user-attachments/assets/ec316e4b-22df-4ce5-88b5-b460b7e9fe10" />
+
 Secure login and registration flow with validation.
 
 ### 2. The Menu (Home)
 <img width="1912" height="866" alt="צילום מסך 2026-03-31 180902" src="https://github.com/user-attachments/assets/c019f38e-0bf5-4742-9443-aac8c1cbfd02" />
+
 Dynamic burger menu with category filtering and interactive cards.
 
 ### 3. Order History & Favorites
@@ -29,6 +31,7 @@ Personalized user dashboard tracking previous purchases and favorite meals.
 
 ### 4. Shopping Cart & Checkout
 <img width="1907" height="851" alt="צילום מסך 2026-03-31 180950" src="https://github.com/user-attachments/assets/9ef64654-b7b5-4807-91ed-6da0f0412d86" />
+
 Real-time price calculation and order processing simulation.
 
 ---
@@ -73,4 +76,4 @@ project/
 │   ├── main.js           # App initialization
 │   └── ...               # Additional logic modules
 ├── json/                 # Mock database (data.json)
-└── screenshots/          # App preview images
+└── images/          # App preview images
