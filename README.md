@@ -7,29 +7,29 @@ The core of this project is a **custom-built Fake HTTP Layer**, which mimics asy
 
 ## 🌐 Live Application
 * **Frontend (Vercel):** [https://burger-order-system.vercel.app/](https://burger-order-system.vercel.app/)
-* **Source Code:** `https://github.com/odelia50872/burger-order-system.git`
+* **Source Code:** [https://github.com/odelia50872/burger-order-system.git](https://github.com/odelia50872/burger-order-system.git)
 
 ---
 
 ## 📸 Screenshots
 
-### **1. Authentication & Landing**
-<img width="737" height="836" alt="צילום מסך 2026-03-31 180745" src="https://github.com/user-attachments/assets/35508744-0d28-400b-a982-221701642bf8" />
-*Secure login and registration flow with validation.*
+### 1. Authentication & Landing
+<img width="737" height="836" alt="צילום מסך 2026-03-31 180745" src="https://github.com/user-attachments/assets/ec316e4b-22df-4ce5-88b5-b460b7e9fe10" />
+Secure login and registration flow with validation.
 
-### **2. The Menu (Home)**
-<img width="1912" height="866" alt="צילום מסך 2026-03-31 180902" src="https://github.com/user-attachments/assets/666c7f7a-5d8c-460c-a9f6-7eed3b408e98" />
-*Dynamic burger menu with category filtering and interactive cards.*
+### 2. The Menu (Home)
+<img width="1912" height="866" alt="צילום מסך 2026-03-31 180902" src="https://github.com/user-attachments/assets/c019f38e-0bf5-4742-9443-aac8c1cbfd02" />
+Dynamic burger menu with category filtering and interactive cards.
 
-### **3. Order History & Favorites**
-<img width="1909" height="867" alt="צילום מסך 2026-03-31 180918" src="https://github.com/user-attachments/assets/fa134eff-cfc2-463f-aed9-dd2c7ad2101b" />
-<img width="1907" height="847" alt="צילום מסך 2026-03-31 180931" src="https://github.com/user-attachments/assets/8f041073-658a-4eeb-8eed-5757f55ee277" />
+### 3. Order History & Favorites
+<img width="1909" height="867" alt="צילום מסך 2026-03-31 180918" src="https://github.com/user-attachments/assets/2f834783-6b8f-4131-ab61-6e630a99c0c8" />
+<img width="1907" height="847" alt="צילום מסך 2026-03-31 180931" src="https://github.com/user-attachments/assets/4ace7968-a4af-43fc-965e-db7dfb40ceb9" />
 
-*Personalized user dashboard tracking previous purchases and favorite meals.*
+Personalized user dashboard tracking previous purchases and favorite meals.
 
-### **4. Shopping Cart & Checkout**
-<img width="1907" height="851" alt="צילום מסך 2026-03-31 180950" src="https://github.com/user-attachments/assets/fa003a20-16fa-4ca5-81db-f144f9812814" />
-*Real-time price calculation and order processing simulation.*
+### 4. Shopping Cart & Checkout
+<img width="1907" height="851" alt="צילום מסך 2026-03-31 180950" src="https://github.com/user-attachments/assets/9ef64654-b7b5-4807-91ed-6da0f0412d86" />
+Real-time price calculation and order processing simulation.
 
 ---
 
@@ -46,7 +46,7 @@ Mr. Burger provides a complete user journey from hunger to order confirmation:
 ## 🏗️ Technical Architecture & "Fake HTTP" Logic
 The project demonstrates advanced frontend engineering by decoupling the UI from the data source:
 
-* **Mock API Layer (`netWork.js`):** Implements a service that wraps data requests in **Promises**.
+* **Mock API Layer (netWork.js):** Implements a service that wraps data requests in **Promises**.
 * **Latency Simulation:** Uses `setTimeout` to mimic the "waiting" time of a real server (e.g., 1.2s for an order to process).
 * **State Management:** Centralized logic for handling user sessions, cart state, and UI notifications.
 * **Persistence:** Uses `localStorage` to ensure your cart and profile survive page refreshes.
